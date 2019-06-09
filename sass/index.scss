@@ -1,0 +1,171 @@
+$bg-color: #f3f5f7;
+$search-button-color: #00a4ff;
+$nav-text-color: #00a4ff;
+
+$logo-path: "../images/logo.png";
+$search-button-img-path: "../images/fa-search.png";
+$nav-underline: 2px solid #00a4ff;
+$search-bar-border: 1px solid #00a4ff;
+
+@mixin widthAndHeight($width, $height) {
+  width: $width + px;
+  height: $height + px;
+}
+
+body {
+  background-color: $bg-color;
+}
+
+header {
+  @include widthAndHeight(1300, 100);
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+.logo {
+  @include widthAndHeight(195, 42);
+  float: left;
+  a {
+    @include widthAndHeight(195, 42);
+    display: block;
+    background: url($logo-path) no-repeat;
+    text-indent: -999px;
+    overflow: hidden;
+  }
+}
+
+nav {
+  float: left;
+
+  li {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 25px;
+    a {
+      display: block;
+      height: 40px;
+      font-size: 18px;
+      padding: 0 10px;
+
+      &:hover {
+        border-bottom: $nav-underline;
+        color: $nav-text-color;
+      }
+    }
+  }
+}
+
+.search {
+  @include widthAndHeight(410, 40);
+  float: left;
+  margin-left: 170px;
+
+  input {
+    @include widthAndHeight(361, 40);
+    border: $search-bar-border;
+    outline: none;
+    padding-left: 10px;
+    float: left;
+  }
+
+  button {
+    @include widthAndHeight(49, 40);
+    outline: none;
+    border: none;
+    float: left;
+    background-color: $search-button-color;
+    background: url($search-button-img-path);
+  }
+}
+.personal {
+  float: right;
+  height: 40px;
+  line-height: 40px;
+
+  dt,
+  dd {
+    float: left;
+  }
+  s {
+    position: relative;
+    padding: 0 20px;
+    text-decoration: none;
+    &::before {
+      content: "";
+      display: block;
+      @include widthAndHeight(6, 6);
+      background-color: #f00;
+      border-radius: 50%;
+      position: absolute;
+      right: 20px;
+      top: 0;
+    }
+  }
+  span img {
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}
+.banner {
+  @include widthAndHeight(1200, 420);
+  margin: 0 auto;
+}
+.inner {
+  height: 420px;
+  position: relative;
+}
+.subnav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  @include widthAndHeight(190, 420);
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  padding-top: 20px;
+
+  li {
+      padding: 15px 26px;
+    a {
+      font-size: 14px;
+      color: #fff;
+      display: block;
+      position: relative;
+
+      &:hover {
+        color: #00a4ff;
+      }
+      span {
+        position: absolute;
+        right: 20px;
+
+      }
+    }
+  }
+}
+.circle {
+  @include widthAndHeight(176, 20);
+  position: absolute;
+  left: 50%;
+  margin-left: -88px;
+  bottom: 15px;
+
+  i {
+    display: inline-block;
+    @include widthAndHeight(13, 13);
+    background: rgba(255, 255, 255,0.4);
+    margin: 0 5px;
+    border-radius: 50%;
+    transform: all .3s;
+
+    &:hover {
+    width: 20px;
+    border-radius: 30%;
+
+    }
+  }
+
+  .current {
+    width: 20px;
+  }
+
+}
